@@ -2,8 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".", // Base directory (usually the root of your project)
     "paths": {
-      "@/*": ["/*"],
-      "@types/*": ["./*"]
+      "@/*": ["./*"]
     },
     "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
