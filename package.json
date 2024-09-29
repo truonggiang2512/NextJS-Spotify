@@ -25,6 +25,7 @@
     "stripe": "^16.12.0",
     "tailwind-merge": "^2.5.2",
     "uniqid": "^5.4.0",
+    "use-sound": "^4.0.3",
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
