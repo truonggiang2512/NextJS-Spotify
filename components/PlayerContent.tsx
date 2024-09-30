@@ -17,7 +17,7 @@ interface PlayerContentProps {
 const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   const player = usePlayer();
   const [volume, setVolume] = useState(1);
-  const [isPlaying, setisPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const Icon = isPlaying ? BsPauseFill : BsPlayFill;
   const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
   const onPlayNext = () => {
@@ -32,6 +32,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     player.setId(nextSong);
   };
   const onPlayPrevious = () => {
+    console.log(player);
     if (player.ids.length === 0) {
       return;
     }
@@ -44,12 +45,12 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   };
   const [play, { pause, sound }] = useSound(songUrl, {
     volume: volume,
-    onplay: () => setisPlaying(true),
+    onplay: () => setIsPlaying(true),
     onend: () => {
-      setisPlaying(false);
+      setIsPlaying(false);
       onPlayNext();
     },
-    onpause: () => setisPlaying(false),
+    onpause: () => setIsPlaying(false),
     format: ["mp3"],
   });
   useEffect(() => {

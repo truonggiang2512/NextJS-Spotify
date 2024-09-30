@@ -8,10 +8,10 @@ interface PageContentProps {
 }
 
 const PageContent: React.FC<PageContentProps> = ({ songs }) => {
+  const onPlay = useOnPlay(songs);
   if (songs.length === 0) {
     return <div className="nt-4 text-neutral-400">No songs available</div>;
   }
-  const onPlay = useOnPlay(songs);
   return (
     <div
       className="grid grid-cols-2
@@ -25,7 +25,11 @@ const PageContent: React.FC<PageContentProps> = ({ songs }) => {
     "
     >
       {songs.map((item) => (
-        <SongItem key={item.id} onClick={onPlay} data={item} />
+        <SongItem
+          key={item.id}
+          onClick={(id: string) => onPlay(id)}
+          data={item}
+        />
       ))}
     </div>
   );
