@@ -31,7 +31,6 @@ const UploadModal = () => {
     }
   };
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-    console.log("Form submitted:", values);
     //Upload to supabase
     try {
       console.log(values);
@@ -134,13 +133,7 @@ const UploadModal = () => {
             {...register("image", { required: true })}
           />
         </div>
-        <Button
-          onClick={() => {
-            console.log(123);
-          }}
-          disabled={isLoading}
-          type="submit"
-        >
+        <Button onClick={() => {}} disabled={isLoading} type="submit">
           Create
         </Button>
       </form>
