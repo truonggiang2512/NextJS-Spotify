@@ -10,7 +10,7 @@ import Stripe from "stripe";
 
 const relevantEvents = new Set([
   "product.created",
-  "product,updated",
+  "product.updated",
   "price.created",
   "price.updated",
   "checkout.session.completed",
