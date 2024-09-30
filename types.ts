@@ -20,7 +20,7 @@ export interface UserDetails {
 }
 export interface Product {
   id: string;
-  avtive?: boolean;
+  active?: boolean;
   name?: string;
   description?: string;
   image?: string;
@@ -37,6 +37,7 @@ export interface Price {
   interval?: Stripe.Price.Recurring.Interval;
   interval_count?: number;
   trial_period_days?: number;
+  metadata?: Stripe.Metadata;
 }
 export interface Subscriptions {
   id: string;
