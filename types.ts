@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-
+x;
 export interface Song {
   id: string;
   user_id: string;
@@ -26,6 +26,11 @@ export interface Product {
   image?: string;
   metadata?: Stripe.Metadata;
 }
+
+export interface ProductWithPrice extends Product {
+  prices?: Price[];
+}
+
 export interface Price {
   id: string;
   product_id?: string;
