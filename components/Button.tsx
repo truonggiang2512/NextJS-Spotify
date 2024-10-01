@@ -1,3 +1,4 @@
+//@typescript-eslint/no-empty-object-type
 import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 

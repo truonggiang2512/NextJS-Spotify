@@ -28,6 +28,7 @@ export async function POST() {
     });
 
     return NextResponse.json({ url });
+    // @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.log(error);
     return new NextResponse("Internal Error", { status: 500 });

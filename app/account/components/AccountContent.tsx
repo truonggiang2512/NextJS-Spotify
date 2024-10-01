@@ -25,7 +25,9 @@ const AccountContent = () => {
       });
       window.location.assign(url);
     } catch (error) {
-      toast.error((error as Error).message);
+      if (error) {
+        toast.error((error as Error).message);
+      }
     }
     setLoading(false);
   };

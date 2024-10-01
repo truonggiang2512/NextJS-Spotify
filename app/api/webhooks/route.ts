@@ -26,6 +26,7 @@ export async function POST(request: Request) {
   try {
     if (!sig || !webhookSecret) return;
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+    // @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.log(`Error message` + error.message);
     return new NextResponse(`Webhook Error ${error.nessage}`, { status: 400 });
