@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { stripe } from "@/libs/stripe";
 import { getURL } from "@/libs/helper";
-// @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function POST() {
   try {
     const supabase = createRouteHandlerClient({
