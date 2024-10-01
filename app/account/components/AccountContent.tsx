@@ -17,20 +17,27 @@ const AccountContent = () => {
       router.replace("/");
     }
   }, [isLoading, user, router]);
-  const redirectToCustomerProtal = async () => {
+  const redirectToCustomerPortal = async () => {
     setLoading(true);
     try {
-      const { url, error } = await postData({
+      const { url, error: apiError } = await postData({
         url: "/api/create-portal-link",
       });
-      window.location.assign(url);
-    } catch (error) {
-      if (error) {
-        toast.error((error as Error).message);
+
+      if (apiError) {
+        throw new Error(apiError);
       }
+
+      if (url) {
+        window.location.assign(url);
+      }
+    } catch (err) {
+      toast.error((err as Error).message);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
+
   return (
     <div className="mb-7 px-6 ">
       {!subscription && (
@@ -50,9 +57,9 @@ const AccountContent = () => {
           <Button
             disabled={loading || isLoading}
             className="w-[300px]"
-            onClick={redirectToCustomerProtal}
+            onClick={redirectToCustomerPortal}
           >
-            Open customer portal{" "}
+            Open customer portal
           </Button>
         </div>
       )}

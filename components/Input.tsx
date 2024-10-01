@@ -1,4 +1,4 @@
-//@typescript-eslint/no-empty-object-type
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 

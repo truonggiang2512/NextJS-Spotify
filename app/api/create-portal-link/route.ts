@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { stripe } from "@/libs/stripe";
 import { getURL } from "@/libs/helper";
-
+// @typescript-eslint/no-explicit-any
 export async function POST() {
   try {
     const supabase = createRouteHandlerClient({
@@ -28,9 +28,9 @@ export async function POST() {
     });
 
     return NextResponse.json({ url });
-    // @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.log(error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any

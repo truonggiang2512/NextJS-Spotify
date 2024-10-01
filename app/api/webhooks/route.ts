@@ -17,7 +17,7 @@ const relevantEvents = new Set([
   "customer.subscription.created",
   "customer.subscription.deleted",
 ]);
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export async function POST(request: Request) {
   const body = await request.text();
   const sig = headers().get("Stripe-Signature");
@@ -26,7 +26,6 @@ export async function POST(request: Request) {
   try {
     if (!sig || !webhookSecret) return;
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
-    // @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.log(`Error message` + error.message);
     return new NextResponse(`Webhook Error ${error.nessage}`, { status: 400 });
@@ -73,3 +72,4 @@ export async function POST(request: Request) {
   }
   return NextResponse.json({ received: true }, { status: 200 });
 }
+/* eslint-disable @typescript-eslint/no-explicit-any */
