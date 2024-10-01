@@ -15,7 +15,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           disabled:cursor-not-allowed
           disabled-opacity-50
           focus:outline-none
-          `
+          `,
+          className
         )}
         disabled={disabled}
         ref={ref}

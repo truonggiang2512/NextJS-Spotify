@@ -1,6 +1,6 @@
 import { stripe } from "@/libs/stripe";
 import { NextResponse } from "next/server";
-import { headers, cookies } from "next/headers";
+import { cookies } from "next/headers";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { getURL } from "@/libs/helper";
 import { createOrRetrieveACustomer } from "@/libs/supabaseAdmin";
