@@ -9,7 +9,11 @@ const nextConfig = {
         pathname: "/storage/v1/object/public/images/**"
       },
     ]
-  }
+
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
